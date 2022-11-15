@@ -223,7 +223,7 @@ color: white;
     text-align: center;
     cursor: pointer;
 
-    transition: all .05s ease-in-out;
+    /* transition: all .05s ease-in-out; */
 
 }
 
@@ -328,4 +328,5 @@ color: white;
     margin-top: 70px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    text-align: center;
 }

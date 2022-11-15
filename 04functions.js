@@ -23,7 +23,7 @@ function creazaCard (obj) {
     let expand = document.createElement("div");
     mainDiv.appendChild(expand)
     expand.classList.add("expand")
-    expand.textContent = "EXPAND"
+    expand.textContent = "More info"
     expand.classList.add("hide")
 
     return mainDiv;
@@ -59,3 +59,38 @@ function populeazaPagina (arr,nrPagina) {
 }
 
 
+// functie ce primeste un array si un parametru si returneaza un object 
+
+function retrieveInfo (arr,param){
+
+    let x = "";
+
+    for(i=0;i<arr.length;i++){
+        if( param == arr[i].picture.large){
+            x = arr[i]
+        }
+    }
+
+    return x;
+
+}
+
+
+
+// function gatherPeople(arr,arr1){
+
+//     let allArrTogether = [];
+
+//     for(i=0;i<arr.length;i++){
+
+//         if(arr1[i].name.last!=arr[i].name.last){
+//             allArrTogether.push(arr[i]);
+//         }
+        
+        
+//     }
+
+
+//     return allArrTogether;
+
+// }
