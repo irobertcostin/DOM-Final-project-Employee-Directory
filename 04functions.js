@@ -77,20 +77,30 @@ function retrieveInfo (arr,param){
 
 
 
-// function gatherPeople(arr,arr1){
+// functie ce primeste un array si un parametru si returneaza elementul precedent
 
-//     let allArrTogether = [];
+function previous(arr,param) {
 
-//     for(i=0;i<arr.length;i++){
+    let x = "";
 
-//         if(arr1[i].name.last!=arr[i].name.last){
-//             allArrTogether.push(arr[i]);
-//         }
-        
-        
-//     }
+    for(i=0;i<arr.length;i++){
+        if(arr[i].email.toLowerCase() == param.toLowerCase()) {
+            x = arr.indexOf(arr[i])-1;
+            
+        }
+    }
+    return arr[x];
+}
 
 
-//     return allArrTogether;
+function next (arr,param) {
+    let  x = "";
 
-// }
+    for(i=0;i<arr.length;i++){
+        if(arr[i].email.toLowerCase() == param) {
+            x = arr[arr.indexOf(arr[i])+1];
+        }
+    }
+
+    return x;
+}
