@@ -3,9 +3,47 @@
 //concatenare arrays 
 let whole = staff.concat(floor,managers);
 let search = document.querySelector(".search")
-
 let body = document.querySelector(".body");
 let population = document.querySelector(".population")
+let addNewInput=document.querySelector(".newentry");
+let addNew= document.querySelector(".newentrybutton");
+addNew.addEventListener("click",()=>{
+    population.innerHTML="";
+    // add object to position 0 of array
+    
+    whole.unshift(creazaCard(addNewInput.value))
+    populeazaPagina(whole,1);
+
+    let mainDiv=document.querySelectorAll(".maindiv")
+
+    for(i=0;i<mainDiv.length;i++){
+
+        if(mainDiv[i].classList.contains("maindiv")){
+    
+            mainDiv[i].addEventListener("mouseenter", (e)=> {
+                let obj=e.target
+                // console.log(obj)
+                    if(obj.classList.contains("maindiv")){
+                        obj.lastElementChild.classList.remove("hide")
+            
+                    }
+                
+            })
+    
+            mainDiv[i].addEventListener("mouseleave", (e)=> {
+                let obj=e.target;
+                obj.lastElementChild.classList.add("hide")
+            
+            })
+    
+        }
+    
+    
+    }
+
+
+
+})
 populeazaPagina(whole,1);
 creazaButoane(Math.ceil(whole.length/population.children.length+1));
 // colored div on hover
@@ -36,6 +74,9 @@ for(i=0;i<mainDiv.length;i++){
 }
 
 
+
+
+
 let myModal = body.firstElementChild;
 body.removeChild(myModal);
 
@@ -43,7 +84,7 @@ body.addEventListener("click",(e)=>{
 
     let obj = e.target
     let divRoot = obj.parentNode;
- 
+
     
     
     
@@ -59,20 +100,18 @@ body.addEventListener("click",(e)=>{
         pfp.src = divRoot.firstElementChild.src;
         
         let retrievedObject = retrieveInfo(whole,pfp.src);
-        
-
+        if(retrievedObject.name != undefined && retrievedObject.registered!=undefined && retrievedObject.email!=undefined){
         pfp.nextElementSibling.firstElementChild.textContent=retrievedObject.name.title + " "+retrievedObject.name.last + " "+ retrievedObject.name.first; 
         pfp.nextElementSibling.firstElementChild.nextElementSibling.textContent = retrievedObject.email;
         pfp.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.textContent ="Reg.date: "+ retrievedObject.registered.date;
         pfp.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.textContent ="Age: "+ retrievedObject.registered.age;
-        
+    }
         
         
     }else if (obj.id == "left") {
         let employee = obj.parentNode.parentNode;
         let empObjArr = employee.children;
         let cardData = empObjArr[2].children
-        
         let previousEmp = previous(whole,cardData[1].textContent)
         empObjArr[1].src=previousEmp.picture.large;
         cardData[1].textContent=previousEmp.email;
@@ -157,7 +196,7 @@ search.addEventListener("input",(e)=>{
         population.innerHTML="";
         populeazaPagina(cautare(whole,search.value.toLowerCase()),obj.textContent);
 
-        let mainDiv=document.querySelectorAll(".maindiv")
+        
     for(i=0;i<mainDiv.length;i++){
 
         if(mainDiv[i].classList.contains("maindiv")){
@@ -187,3 +226,4 @@ search.addEventListener("input",(e)=>{
 
     
 })
+
