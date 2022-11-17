@@ -2,13 +2,12 @@
 
 //concatenare arrays 
 let whole = staff.concat(floor,managers);
-
+let search = document.querySelector(".search")
 
 let body = document.querySelector(".body");
 let population = document.querySelector(".population")
 populeazaPagina(whole,1);
 creazaButoane(Math.ceil(whole.length/population.children.length+1));
-whole.length/(population.children.length)
 // colored div on hover
 let mainDiv=document.querySelectorAll(".maindiv")
 for(i=0;i<mainDiv.length;i++){
@@ -111,4 +110,80 @@ paging.addEventListener("click",(e)=>{
     }
     
 
+})
+
+
+
+
+search.addEventListener("input",(e)=>{
+    population.innerHTML="";
+    paging.innerHTML="";
+
+    
+    populeazaPagina(cautare(whole,search.value.toLowerCase()),1);
+    let a = cautare(whole,search.value.toLowerCase()).length;
+    let b = population.children.length;
+    creazaButoane(a/b+1);
+
+    // console.log(cautare(whole,search.value.toLowerCase()))
+    let mainDiv=document.querySelectorAll(".maindiv")
+    for(i=0;i<mainDiv.length;i++){
+
+        if(mainDiv[i].classList.contains("maindiv")){
+    
+            mainDiv[i].addEventListener("mouseenter", (e)=> {
+                let obj=e.target
+                // console.log(obj)
+                    if(obj.classList.contains("maindiv")){
+                        obj.lastElementChild.classList.remove("hide")
+            
+                    }
+                
+            })
+    
+            mainDiv[i].addEventListener("mouseleave", (e)=> {
+                let obj=e.target;
+                obj.lastElementChild.classList.add("hide")
+            
+            })
+    
+        }
+    
+    
+    }
+
+    paging.addEventListener("click",(e)=>{
+        let obj = e.target;
+        population.innerHTML="";
+        populeazaPagina(cautare(whole,search.value.toLowerCase()),obj.textContent);
+
+        let mainDiv=document.querySelectorAll(".maindiv")
+    for(i=0;i<mainDiv.length;i++){
+
+        if(mainDiv[i].classList.contains("maindiv")){
+    
+            mainDiv[i].addEventListener("mouseenter", (e)=> {
+                let obj=e.target
+                // console.log(obj)
+                    if(obj.classList.contains("maindiv")){
+                        obj.lastElementChild.classList.remove("hide")
+            
+                    }
+                
+            })
+    
+            mainDiv[i].addEventListener("mouseleave", (e)=> {
+                let obj=e.target;
+                obj.lastElementChild.classList.add("hide")
+            
+            })
+    
+        }
+    
+    
+    }
+    })
+    
+
+    
 })

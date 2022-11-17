@@ -120,3 +120,16 @@ function next (arr,param) {
 
     return x;
 }
+
+
+// functie ce primeste un array si parametru, si cauta obiecte in array
+
+function cautare(arr,obj){
+    let searched = [];
+    for(i=0;i<arr.length;i++){
+        if(arr[i].name.first.toLowerCase().includes(obj) || arr[i].name.last.toLowerCase().includes(obj)){
+            searched.push(arr[i]);
+        }
+    }
+    return searched;
+}
