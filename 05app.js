@@ -1,12 +1,14 @@
-//concatenare arrays 
 
+
+//concatenare arrays 
 let whole = staff.concat(floor,managers);
 
 
 let body = document.querySelector(".body");
 let population = document.querySelector(".population")
 populeazaPagina(whole,1);
-
+creazaButoane(Math.ceil(whole.length/population.children.length+1));
+whole.length/(population.children.length)
 // colored div on hover
 let mainDiv=document.querySelectorAll(".maindiv")
 for(i=0;i<mainDiv.length;i++){
@@ -95,4 +97,18 @@ body.addEventListener("click",(e)=>{
 
         
     
+})
+
+
+let paging = document.querySelector(".paging");
+
+paging.addEventListener("click",(e)=>{
+
+    let obj = e.target;
+    if (obj.tagName =="BUTTON"){
+        population.innerHTML="";
+        populeazaPagina(whole,obj.textContent);
+    }
+    
+
 })

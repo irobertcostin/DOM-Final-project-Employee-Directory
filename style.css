@@ -32,7 +32,7 @@ body {
 }
 
 .layerUnu {
-    /* border: 2px solid white; */
+    border: 2px solid red;
     width: 1400px;
     height: 900px;
 
@@ -45,6 +45,32 @@ body {
 
     border-radius: 20px;
 
+}
+
+.paging {
+    display: flex;
+    /* border: 2px solid red; */
+    margin: auto;
+    justify-content: center;
+}
+
+.paging *{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 25px;
+
+    border: none;
+    
+    padding: 5px;
+    background-color: rgb(15, 101, 200);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.paging *:hover {
+    background-color: rgb(174, 7, 174);
 }
 
 .navbar {

@@ -31,6 +31,9 @@ function creazaCard (obj) {
 
 
 // functie ce primeste ca parametru un vector nr carduri si nr de pagini
+// aceasta functie va publica elementele din arrayul respectiv
+// nrCarduri se refera la carduri pe pagina 
+//nr Pagini se refera la pagina care contine 12 elemente din array
 
 function definestePagina (arr,nrCarduri,nrPagini){
 
@@ -56,6 +59,19 @@ function populeazaPagina (arr,nrPagina) {
 
     return arr;
 
+}
+
+// functie ce creaza butoane
+function creazaButoane(numar) {
+    let paginatie = document.querySelector(".paging");
+    paginatie.innerHTML="";
+    for(i=1;i<numar;i++){
+
+        let buton = document.createElement("button");
+        buton.textContent=i;
+        paginatie.appendChild(buton);
+    }
+    
 }
 
 
