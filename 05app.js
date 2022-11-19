@@ -7,13 +7,16 @@ let body = document.querySelector(".body");
 let population = document.querySelector(".population")
 let addNewInput=document.querySelector(".newentry");
 let addNew= document.querySelector(".newentrybutton");
-addNew.addEventListener("click",()=>{
+addNew.addEventListener("click",(e)=>{
+    let obj=e.target;
     population.innerHTML="";
     // add object to position 0 of array
-    
     whole.unshift(creazaCard(addNewInput.value))
     populeazaPagina(whole,1);
 
+    let addedEl = population.children[0];
+    addedEl.firstElementChild.nextElementSibling.textContent = addNewInput.value;
+    population.children[0].firstElementChild.nextElementSibling.id = "memorize";
     let mainDiv=document.querySelectorAll(".maindiv")
 
     for(i=0;i<mainDiv.length;i++){
@@ -43,7 +46,9 @@ addNew.addEventListener("click",()=>{
 
 
 
+    return whole;
 })
+
 populeazaPagina(whole,1);
 creazaButoane(Math.ceil(whole.length/population.children.length+1));
 // colored div on hover
@@ -76,7 +81,6 @@ for(i=0;i<mainDiv.length;i++){
 
 
 
-
 let myModal = body.firstElementChild;
 body.removeChild(myModal);
 
@@ -98,8 +102,22 @@ body.addEventListener("click",(e)=>{
         let employee = nepot.firstElementChild;
         let pfp = employee.firstElementChild.nextElementSibling;
         pfp.src = divRoot.firstElementChild.src;
+        pfp.style.width = "128px";
+        pfp.style.height="128.px";
         
         let retrievedObject = retrieveInfo(whole,pfp.src);
+        let data = document.querySelector(".info").children;
+        
+        
+        
+        if(population.children[0].firstElementChild.nextElementSibling.id == "memorize"){
+            data[0].textContent = population.children[0].firstElementChild.nextElementSibling.textContent;
+            data[1].textContent = "click to modify";
+            data[2].textContent = "Age: " + "click to modify";
+            data[3].textContent = "Reg.date "+ "click to modify";
+            
+        }
+        
         if(retrievedObject.name != undefined && retrievedObject.registered!=undefined && retrievedObject.email!=undefined){
         pfp.nextElementSibling.firstElementChild.textContent=retrievedObject.name.title + " "+retrievedObject.name.last + " "+ retrievedObject.name.first; 
         pfp.nextElementSibling.firstElementChild.nextElementSibling.textContent = retrievedObject.email;
@@ -107,6 +125,27 @@ body.addEventListener("click",(e)=>{
         pfp.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.textContent ="Age: "+ retrievedObject.registered.age;
     }
         
+let dataToModify = document.querySelector(".info")
+let edit = document.createElement("button");
+edit.id = "edit";
+edit.textContent = "Edit"
+dataToModify.appendChild(edit)
+dataToModify.addEventListener("click",(c)=>{
+        let obj1 = c.target;
+
+        let x = obj1;
+    
+        dataToModify.removeChild(obj1);
+        
+        let input1 = document.createElement("input");
+        input1.id = "inputmodify";
+        input1.value = x.textContent;
+        dataToModify.insertBefore(input1,dataToModify.children[0]);
+
+        
+
+        
+})
         
     }else if (obj.id == "left") {
         let employee = obj.parentNode.parentNode;
@@ -118,6 +157,9 @@ body.addEventListener("click",(e)=>{
         cardData[0].textContent=previousEmp.name.title+ " "+previousEmp.name.first+" "+previousEmp.name.last;
         cardData[2].textContent="Reg.date: "+previousEmp.registered.date;
         cardData[3].textContent="Age: "+previousEmp.registered.age;
+        if(cardData=whole[0]){
+            
+        }
         
 
     }else if (obj.id == "right"){
@@ -132,6 +174,8 @@ body.addEventListener("click",(e)=>{
         cardData[3].textContent="Age: "+nextEmp.registered.age;
         
     }
+
+    
 
         
     
@@ -226,4 +270,8 @@ search.addEventListener("input",(e)=>{
 
     
 })
+
+
+
+
 
