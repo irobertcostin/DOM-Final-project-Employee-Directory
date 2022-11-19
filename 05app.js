@@ -7,6 +7,8 @@ let body = document.querySelector(".body");
 let population = document.querySelector(".population")
 let addNewInput=document.querySelector(".newentry");
 let addNew= document.querySelector(".newentrybutton");
+
+
 addNew.addEventListener("click",(e)=>{
     let obj=e.target;
     population.innerHTML="";
@@ -78,9 +80,6 @@ for(i=0;i<mainDiv.length;i++){
 
 }
 
-
-
-
 let myModal = body.firstElementChild;
 body.removeChild(myModal);
 
@@ -111,10 +110,10 @@ body.addEventListener("click",(e)=>{
         
         
         if(population.children[0].firstElementChild.nextElementSibling.id == "memorize"){
-            data[0].textContent = population.children[0].firstElementChild.nextElementSibling.textContent;
+            data[0].textContent ="Mr/Mrs " + population.children[0].firstElementChild.nextElementSibling.textContent;
             data[1].textContent = "click to modify";
-            data[2].textContent = "Age: " + "click to modify";
-            data[3].textContent = "Reg.date "+ "click to modify";
+            data[2].textContent = "Age: " ;
+            data[3].textContent = "Reg.date ";
             
         }
         
@@ -123,29 +122,14 @@ body.addEventListener("click",(e)=>{
         pfp.nextElementSibling.firstElementChild.nextElementSibling.textContent = retrievedObject.email;
         pfp.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.textContent ="Reg.date: "+ retrievedObject.registered.date;
         pfp.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.textContent ="Age: "+ retrievedObject.registered.age;
-    }
+            }
         
-let dataToModify = document.querySelector(".info")
-let edit = document.createElement("button");
-edit.id = "edit";
-edit.textContent = "Edit"
-dataToModify.appendChild(edit)
-dataToModify.addEventListener("click",(c)=>{
-        let obj1 = c.target;
-
-        let x = obj1;
-    
-        dataToModify.removeChild(obj1);
-        
-        let input1 = document.createElement("input");
-        input1.id = "inputmodify";
-        input1.value = x.textContent;
-        dataToModify.insertBefore(input1,dataToModify.children[0]);
-
         
 
         
-})
+
+
+        
         
     }else if (obj.id == "left") {
         let employee = obj.parentNode.parentNode;
@@ -173,12 +157,69 @@ dataToModify.addEventListener("click",(c)=>{
         cardData[2].textContent="Reg.date: "+nextEmp.registered.date;
         cardData[3].textContent="Age: "+nextEmp.registered.age;
         
-    }
+    } else if(obj.id=="edit"){
+        obj.id="save";
+        obj.textContent="Save";
+        let dataToModify = document.querySelector(".info")
+        let arr = dataToModify.children;
+        for(i=0;i<arr.length;i++){
+            arr[i].classList.add("circle");
+        }
+        let newInput=document.createElement("input");
 
-    
+        dataToModify.addEventListener("click",(c)=>{
+            let obj = c.target;
+            if (obj.id==="fullname"){
+                let arr = dataToModify.children;
+                let intermediate = arr[0].textContent;
+                dataToModify.removeChild(arr[0]);
+                dataToModify.insertBefore(newInput,arr[0]);
+                arr[0].id="inputmodify"
+                arr[0].placeholder=intermediate;
+                
+            }
+            // if(obj.id==="email"){
+            //     let arr = dataToModify.children;
+            //     let intermediate = arr[1].textContent;
+            //     dataToModify.removeChild(arr[1]);
+            //     dataToModify.insertBefore(newInput,arr[1]);
+            //     arr[1].id="inputmodify"
+            //     arr[1].placeholder=intermediate;
+            // }
 
+
+        })
         
-    
+        
+
+    }else if(obj.id=="save"){
+        let dataToModify = document.querySelector(".info");
+        
+        let arr = dataToModify.children;
+        for(i=0;i<arr.length;i++){
+            arr[i].classList.remove("circle");
+        }
+
+        if(dataToModify.firstElementChild.id==="inputmodify"){
+
+            let inputMemory=document.getElementById("inputmodify");
+            let aux = inputMemory.value;
+
+            dataToModify.removeChild(dataToModify.children[0]);
+            
+            let p = document.createElement("p");
+            p.textContent=aux;
+            p.id="fullname";
+            
+            dataToModify.insertBefore(p,dataToModify.firstElementChild);
+
+            
+        }
+
+        obj.id="edit";
+        obj.textContent="Edit"
+        
+    }
 })
 
 

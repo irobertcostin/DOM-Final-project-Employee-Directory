@@ -190,7 +190,7 @@ function cautare(arr,obj){
                 searched.push(arr[i]);
             }
         }
-       
+    
     }
     return searched;
 }
