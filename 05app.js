@@ -53,8 +53,8 @@ addNew.addEventListener("click",(e)=>{
 
 populeazaPagina(whole,1);
 creazaButoane(Math.ceil(whole.length/population.children.length+1));
-// colored div on hover
-let mainDiv=document.querySelectorAll(".maindiv")
+
+let mainDiv=document.querySelectorAll(".maindiv");
 for(i=0;i<mainDiv.length;i++){
 
     if(mainDiv[i].classList.contains("maindiv")){
@@ -85,14 +85,26 @@ body.removeChild(myModal);
 
 body.addEventListener("click",(e)=>{
 
-    let obj = e.target
+    let obj = e.target;
     let divRoot = obj.parentNode;
 
-    
+    let edit = document.getElementById("edit");
+    let save = document.getElementById("save");
     
     
     if(obj.id == "esc"){
+        let inputMemory=document.getElementById("inputmodify");
+        // let aux = inputMemory.value;
+        // if(aux===""){
+        //     alert("no valid input")
+        // }else if(aux!==""){
+            
+        // }
+
         body.removeChild(myModal)
+        
+        
+        
     }else if(obj.textContent=="More info"){
         let companyName = document.getElementById("companyName");
         body.insertBefore(myModal,companyName);
@@ -132,21 +144,18 @@ body.addEventListener("click",(e)=>{
         
         
     }else if (obj.id == "left") {
+        let inputMemory=document.getElementById("inputmodify");
         let employee = obj.parentNode.parentNode;
-        let empObjArr = employee.children;
-        let cardData = empObjArr[2].children
-        let previousEmp = previous(whole,cardData[1].textContent)
-        empObjArr[1].src=previousEmp.picture.large;
-        cardData[1].textContent=previousEmp.email;
-        cardData[0].textContent=previousEmp.name.title+ " "+previousEmp.name.first+" "+previousEmp.name.last;
-        cardData[2].textContent="Reg.date: "+previousEmp.registered.date;
-        cardData[3].textContent="Age: "+previousEmp.registered.age;
-        if(cardData=whole[0]){
-            
-        }
-        
-
+            let empObjArr = employee.children;
+            let cardData = empObjArr[2].children
+            let previousEmp = previous(whole,cardData[1].textContent)
+            empObjArr[1].src=previousEmp.picture.large;
+            cardData[1].textContent=previousEmp.email;
+            cardData[0].textContent=previousEmp.name.title+ " "+previousEmp.name.first+" "+previousEmp.name.last;
+            cardData[2].textContent="Reg.date: "+previousEmp.registered.date;
+            cardData[3].textContent="Age: "+previousEmp.registered.age;
     }else if (obj.id == "right"){
+        let inputMemory=document.getElementById("inputmodify");
         let employee = obj.parentNode.parentNode;
         let empObjArr = employee.children;
         let cardData = empObjArr[2].children
@@ -156,10 +165,9 @@ body.addEventListener("click",(e)=>{
         cardData[0].textContent=nextEmp.name.title+ " "+nextEmp.name.first+" "+nextEmp.name.last;
         cardData[2].textContent="Reg.date: "+nextEmp.registered.date;
         cardData[3].textContent="Age: "+nextEmp.registered.age;
-        
     } else if(obj.id=="edit"){
-        obj.id="save";
-        obj.textContent="Save";
+        edit.id="save";
+        edit.textContent="Save";
         let dataToModify = document.querySelector(".info")
         let arr = dataToModify.children;
         for(i=0;i<arr.length;i++){
@@ -178,14 +186,14 @@ body.addEventListener("click",(e)=>{
                 arr[0].placeholder=intermediate;
                 
             }
-            // if(obj.id==="email"){
-            //     let arr = dataToModify.children;
-            //     let intermediate = arr[1].textContent;
-            //     dataToModify.removeChild(arr[1]);
-            //     dataToModify.insertBefore(newInput,arr[1]);
-            //     arr[1].id="inputmodify"
-            //     arr[1].placeholder=intermediate;
-            // }
+            if(obj.id==="email"){
+                let arr = dataToModify.children;
+                let intermediate = arr[1].textContent;
+                dataToModify.removeChild(arr[1]);
+                dataToModify.insertBefore(newInput,arr[1]);
+                arr[1].id="inputmodify"
+                arr[1].placeholder=intermediate;
+            }
 
 
         })
@@ -194,7 +202,8 @@ body.addEventListener("click",(e)=>{
 
     }else if(obj.id=="save"){
         let dataToModify = document.querySelector(".info");
-        
+        obj.id="edit";
+        obj.textContent="Edit"
         let arr = dataToModify.children;
         for(i=0;i<arr.length;i++){
             arr[i].classList.remove("circle");
@@ -204,7 +213,7 @@ body.addEventListener("click",(e)=>{
 
             let inputMemory=document.getElementById("inputmodify");
             let aux = inputMemory.value;
-
+            if (aux!==""){
             dataToModify.removeChild(dataToModify.children[0]);
             
             let p = document.createElement("p");
@@ -212,12 +221,36 @@ body.addEventListener("click",(e)=>{
             p.id="fullname";
             
             dataToModify.insertBefore(p,dataToModify.firstElementChild);
+            save.id="edit";
+            save.textContent="Edit"
+            }else if(aux===""){
+                alert("no valid input")
+            }
+            
 
             
+        }else if (dataToModify.firstElementChild.nextElementSibling.id==="inputmodify"){
+            let inputMemory=document.getElementById("inputmodify");
+            let aux = inputMemory.value;
+            if (aux!==""){
+            dataToModify.removeChild(dataToModify.children[1]);
+            
+            let p = document.createElement("p");
+            p.textContent=aux;
+            p.id="email";
+            
+            dataToModify.insertBefore(p,dataToModify.firstElementChild.nextElementSibling);
+            save.id="edit";
+            save.textContent="Edit"
+            }else if(aux===""){
+                alert("no valid input")
+
+            }
         }
 
-        obj.id="edit";
-        obj.textContent="Edit"
+        
+
+        
         
     }
 })
@@ -313,6 +346,118 @@ search.addEventListener("input",(e)=>{
 })
 
 
+
+let filters = document.querySelector(".filters");
+filters.addEventListener("change",(g)=>{
+    let population = document.querySelector(".population")
+    let floorArr=document.getElementById("floorfilter");
+    let staffArr=document.getElementById("stafffilter");
+    let managersArr = document.getElementById("managersfilter");
+    let obj = g.target;
+    console.log(obj)
+
+    if(floorArr.checked == true){
+        population.innerHTML="";
+        populeazaPagina(floor,1);
+        let mainDiv=document.querySelectorAll(".maindiv");
+        for(i=0;i<mainDiv.length;i++){
+
+            if(mainDiv[i].classList.contains("maindiv")){
+        
+                mainDiv[i].addEventListener("mouseenter", (e)=> {
+                    let obj=e.target
+                    // console.log(obj)
+                        if(obj.classList.contains("maindiv")){
+                            obj.lastElementChild.classList.remove("hide")
+                
+                        }
+                    
+                })
+        
+                mainDiv[i].addEventListener("mouseleave", (e)=> {
+                    let obj=e.target;
+                    obj.lastElementChild.classList.add("hide")
+                
+                })
+        
+            }
+        
+        
+    }}else if (floorArr.checked==false){
+        population.innerHTML="";
+        populeazaPagina(whole,1);
+        for(i=0;i<mainDiv.length;i++){
+            let mainDiv=document.querySelectorAll(".maindiv");
+            if(mainDiv[i].classList.contains("maindiv")){
+        
+                mainDiv[i].addEventListener("mouseenter", (e)=> {
+                    let obj=e.target
+                    // console.log(obj)
+                        if(obj.classList.contains("maindiv")){
+                            obj.lastElementChild.classList.remove("hide")
+                
+                        }
+                    
+                })
+        
+                mainDiv[i].addEventListener("mouseleave", (e)=> {
+                    let obj=e.target;
+                    obj.lastElementChild.classList.add("hide")
+                
+                })
+        
+            }
+        
+        
+        }
+
+    }
+    
+    
+    
+    else if (staffArr.checked==true){
+        console.log("test2");
+    }
+    
+    
+    
+    else if (managersArr.checked==true){
+        // let population = document.querySelector(".population")
+        // population.innerHTML="";
+        // populeazaPagina(managers,1);
+        console.log(managersArr);
+        
+        let mainDiv=document.querySelectorAll(".maindiv");
+        for(i=0;i<mainDiv.length;i++){
+
+            if(mainDiv[i].classList.contains("maindiv")){
+        
+                mainDiv[i].addEventListener("mouseenter", (e)=> {
+                    let obj=e.target
+                    // console.log(obj)
+                        if(obj.classList.contains("maindiv")){
+                            obj.lastElementChild.classList.remove("hide")
+                
+                        }
+                    
+                })
+        
+                mainDiv[i].addEventListener("mouseleave", (e)=> {
+                    let obj=e.target;
+                    obj.lastElementChild.classList.add("hide")
+                
+                })
+        
+            }
+        
+        
+        }
+        
+    }
+    
+    
+    
+})
 
 
 

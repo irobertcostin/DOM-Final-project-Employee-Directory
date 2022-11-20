@@ -107,6 +107,7 @@ function populeazaPagina (arr,nrPagina) {
 }
 
 
+
 // functie ce creaza butoane
 function creazaButoane(numar) {
     let paginatie = document.querySelector(".paging");
