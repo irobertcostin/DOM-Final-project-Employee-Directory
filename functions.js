@@ -181,4 +181,25 @@ function cautare(arr, obj) {
     return searched;
 }
 
-//functie ce primeste ca parametru un obiect si ataseaza modalul
+//functie ce primeste ca parametru un atribut si creaza un obiect
+function newObj(param){
+    let x = {
+        name: {
+          title: "",
+          first: "",
+          last: param,
+        },
+        email: param+"@example.com",
+        registered: {
+          date: "",
+          age: 18,
+        },
+        picture: {
+          large: "https://randomuser.me/api/portraits/men/99.jpg",
+          medium: "",
+          thumbnail: "",
+        },
+    }
+
+    return x;
+}

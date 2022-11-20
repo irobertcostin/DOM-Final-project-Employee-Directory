@@ -102,3 +102,16 @@ arrows.addEventListener("click",(f)=>{
 
 
 })
+
+let newElInput = document.querySelector(".newentry");
+let addBtn = document.querySelector(".newentrybutton");
+
+addBtn.addEventListener("click",()=>{
+
+    let name = newElInput.value;
+    
+    let newEmp = newObj(name);
+    staff.unshift(newEmp);
+    populeazaPagina(staff,1)
+
+})
