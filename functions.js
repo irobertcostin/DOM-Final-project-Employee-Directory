@@ -144,14 +144,10 @@ function previous(arr, param) {
 
     let x = "";
     for (i = 0; i < arr.length; i++) {
-
-        if (arr[i].email != undefined) {
-            if (arr[i].email.toLowerCase() == param) {
+            if (arr[i].email == param) {
                 x = arr[arr.indexOf(arr[i]) - 1];
             }
-        }
-
-
+        
     }
     return x;
 }
@@ -161,14 +157,11 @@ function next(arr, param) {
     let x = "";
 
     for (i = 0; i < arr.length; i++) {
-        if (arr[i].email != undefined) {
             if (arr[i].email.toLowerCase() == param) {
                 x = arr[arr.indexOf(arr[i]) + 1];
             }
-        }
-
+        
     }
-
     return x;
 }
 

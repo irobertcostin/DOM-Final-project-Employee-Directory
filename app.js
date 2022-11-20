@@ -21,7 +21,7 @@ paging.addEventListener("click", (a) => {
 
 let population = document.querySelector(".population");
 
-
+// modal unhide and populated
 population.addEventListener("click",(b)=>{
     let obj=b.target;
 
@@ -31,7 +31,7 @@ population.addEventListener("click",(b)=>{
 
         let name=obj.parentNode.querySelector(".nume").textContent;
         let expanded = retrieveInfo(staff,name);
-        console.log(expanded)
+        // console.log(expanded)
 
         let employeeCard = modal.firstElementChild.firstElementChild;
         console.log(employeeCard)
@@ -54,7 +54,6 @@ m.addEventListener("click",(e)=>{
     }
 
 
-
 })
 
 let search = document.querySelector(".search");
@@ -70,6 +69,36 @@ search.addEventListener("input",()=>{
             populeazaPagina(arr,obj.textContent)
         }
     })
+
+
+})
+
+
+let arrows=document.querySelector(".arrows");
+arrows.addEventListener("click",(f)=>{
+    let obj=f.target;
+    let email = document.getElementById("email").textContent;
+    let employeeCard = modal.firstElementChild.firstElementChild;
+
+    if(obj.id=="left"){
+        let preObj = previous(staff,email);
+        employeeCard.children[1].src=preObj.picture.large;
+        employeeCard.children[2].children[0].textContent=preObj.name.first + " " + preObj.name.last;
+        employeeCard.children[2].children[1].textContent=preObj.email;
+        employeeCard.children[2].children[2].textContent="Reg.date: "+preObj.registered.date;
+        employeeCard.children[2].children[3].textContent="Age: "+preObj.registered.age;
+
+        
+    }else if(obj.id=="right"){
+        let nexObj = next(staff,email);
+        employeeCard.children[1].src=nexObj.picture.large;
+        employeeCard.children[2].children[0].textContent=nexObj.name.first + " " + nexObj.name.last;
+        employeeCard.children[2].children[1].textContent=nexObj.email;
+        employeeCard.children[2].children[2].textContent="Reg.date: "+nexObj.registered.date;
+        employeeCard.children[2].children[3].textContent="Age: "+nexObj.registered.age;
+
+
+    }
 
 
 })
