@@ -203,3 +203,17 @@ function newObj(param){
 
     return x;
 }
+
+//functie ce primeste un array si parametru , si returneaza un nou arr
+
+function filtrare(arr,param){
+
+    let filtered=[];
+
+    for(i=0;i<arr.length;i++){
+        if(arr[i].empType==param){
+            filtered.push(arr[i])
+        }
+    }
+    return filtered
+}

@@ -7,6 +7,7 @@ let modal= document.querySelector(".modal-container");
 
 let m= document.querySelector(".modal");
 
+let edit = document.getElementById("edit");
 
 
 paging.addEventListener("click", (a) => {
@@ -59,7 +60,7 @@ m.addEventListener("click",(e)=>{
 let search = document.querySelector(".search");
 search.addEventListener("input",()=>{
 
-    let arr = cautare(staff,search.value);
+    let arr = cautare(staff,search.value.toLowerCase());
     creazaButoane(arr.length/12+1);
     populeazaPagina(arr,1);
 
@@ -91,6 +92,8 @@ arrows.addEventListener("click",(f)=>{
         
     }else if(obj.id=="right"){
         let nexObj = next(staff,email);
+        console.log(employeeCard)
+        console.log(nexObj)
         employeeCard.children[1].src=nexObj.picture.large;
         employeeCard.children[2].children[0].textContent=nexObj.name.first + " " + nexObj.name.last;
         employeeCard.children[2].children[1].textContent=nexObj.email;
@@ -115,3 +118,30 @@ addBtn.addEventListener("click",()=>{
     populeazaPagina(staff,1)
 
 })
+
+let filter = document.querySelector(".filters");
+filter.addEventListener("change",(g)=>{
+    
+    let obj = g.target;
+    
+    if(obj.checked==true){
+        paging.innerHTML="";
+        populeazaPagina(filtrare(staff,obj.id),1)
+        // creazaButoane(filtrare(staff,obj.id).length/12+1);
+        // console.log(filtrare(staff,obj.id))
+    }else if(obj.checked==false){
+        populeazaPagina(staff,1);
+    }
+
+})
+
+
+edit.addEventListener("click",()=>){
+    
+}
+
+// nu se populeaza total daca sunt mai multe filtre active
+// functia de search nu cauta cu filtrele active, cauta in tot arrayul
+// daca avem un filtru activ, si apasam pe pagina, ne repopuleaza pagina fara filtre 
+// daca adaugam un element nou, sagetile sunt inactive pe modalul nou creat 
+

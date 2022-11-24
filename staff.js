@@ -14,6 +14,7 @@ const staff = [
         date: "12-24-2008",
         age: 23,
       },
+      empType: "floor",
       picture: {
         large: "https://randomuser.me/api/portraits/women/22.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/22.jpg",
@@ -31,6 +32,7 @@ const staff = [
         date: "11-29-2017",
         age: 25,
       },
+      empType: "floor",
       picture: {
         large: "https://randomuser.me/api/portraits/men/99.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/99.jpg",
@@ -48,6 +50,7 @@ const staff = [
         date: "07-02-2006",
         age: 24,
       },
+      empType: "floor",
       picture: {
         large: "https://randomuser.me/api/portraits/women/79.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/79.jpg",
@@ -64,7 +67,7 @@ const staff = [
       registered: {
         date: "09-15-2002",
         age: 26,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/53.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/53.jpg",
@@ -81,7 +84,7 @@ const staff = [
       registered: {
         date: "12-03-2007",
         age: 28,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/59.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/59.jpg",
@@ -98,7 +101,7 @@ const staff = [
       registered: {
         date: "11-06-2011",
         age: 27,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/68.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/68.jpg",
@@ -115,7 +118,7 @@ const staff = [
       registered: {
         date: "05-27-2014",
         age: 31,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/54.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/54.jpg",
@@ -132,7 +135,7 @@ const staff = [
       registered: {
         date: "02-14-2012",
         age: 38,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/30.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/30.jpg",
@@ -149,7 +152,7 @@ const staff = [
       registered: {
         date: "11-04-2009",
         age: 19,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/16.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/16.jpg",
@@ -166,7 +169,7 @@ const staff = [
       registered: {
         date: "02-14-2010",
         age: 19,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/6.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/6.jpg",
@@ -183,7 +186,7 @@ const staff = [
       registered: {
         date: "10-03-2006",
         age: 23,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/49.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/49.jpg",
@@ -200,7 +203,7 @@ const staff = [
       registered: {
         date: "02-12-2006",
         age: 22,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/72.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/72.jpg",
@@ -217,7 +220,7 @@ const staff = [
       registered: {
         date: "10-28-2011",
         age: 46,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/59.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/59.jpg",
@@ -234,7 +237,7 @@ const staff = [
       registered: {
         date: "08-30-2014",
         age: 43,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/67.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/67.jpg",
@@ -251,7 +254,7 @@ const staff = [
       registered: {
         date: "12-26-2004",
         age: 48,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/11.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/11.jpg",
@@ -268,7 +271,7 @@ const staff = [
       registered: {
         date: "03-09-2011",
         age: 51,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/95.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/95.jpg",
@@ -285,7 +288,7 @@ const staff = [
       registered: {
         date: "06-20-2011",
         age: 52,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/62.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/62.jpg",
@@ -302,7 +305,7 @@ const staff = [
       registered: {
         date: "05-08-2009",
         age: 58,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/8.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/8.jpg",
@@ -319,7 +322,7 @@ const staff = [
       registered: {
         date: "05-18-2006",
         age: 45,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/36.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/36.jpg",
@@ -336,7 +339,7 @@ const staff = [
       registered: {
         date: "07-18-2005",
         age: 57,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/5.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/5.jpg",
@@ -353,7 +356,7 @@ const staff = [
       registered: {
         date: "02-22-2019",
         age: 43,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/9.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/9.jpg",
@@ -370,7 +373,7 @@ const staff = [
       registered: {
         date: "02-16-2010",
         age: 20,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/37.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/37.jpg",
@@ -387,7 +390,7 @@ const staff = [
       registered: {
         date: "06-29-2015",
         age: 20,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/17.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/17.jpg",
@@ -404,7 +407,7 @@ const staff = [
       registered: {
         date: "07-09-2007",
         age: 20,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/43.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/43.jpg",
@@ -421,7 +424,7 @@ const staff = [
       registered: {
         date: "10-24-2010",
         age: 24,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/65.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/65.jpg",
@@ -438,7 +441,7 @@ const staff = [
       registered: {
         date: "12-28-2011",
         age: 27,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/51.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/51.jpg",
@@ -455,7 +458,7 @@ const staff = [
       registered: {
         date: "05-07-2015",
         age: 24,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/47.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/47.jpg",
@@ -472,7 +475,7 @@ const staff = [
       registered: {
         date: "11-23-2008",
         age: 25,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/16.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/16.jpg",
@@ -489,7 +492,7 @@ const staff = [
       registered: {
         date: "07-16-2007",
         age: 35,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/8.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/8.jpg",
@@ -506,7 +509,7 @@ const staff = [
       registered: {
         date: "03-31-2004",
         age: 32,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/4.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/4.jpg",
@@ -523,7 +526,7 @@ const staff = [
       registered: {
         date: "06-08-2003",
         age: 34,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/4.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/4.jpg",
@@ -540,7 +543,7 @@ const staff = [
       registered: {
         date: "05-22-2004",
         age: 38,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/89.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/89.jpg",
@@ -557,7 +560,7 @@ const staff = [
       registered: {
         date: "10-10-2016",
         age: 38,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/22.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/22.jpg",
@@ -574,7 +577,7 @@ const staff = [
       registered: {
         date: "06-25-2019",
         age: 25,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/16.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/16.jpg",
@@ -591,7 +594,7 @@ const staff = [
       registered: {
         date: "08-14-2010",
         age: 35,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/48.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/48.jpg",
@@ -608,7 +611,7 @@ const staff = [
       registered: {
         date: "12-15-2005",
         age: 41,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/25.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/25.jpg",
@@ -625,7 +628,7 @@ const staff = [
       registered: {
         date: "02-24-2006",
         age: 27,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/women/88.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/88.jpg",
@@ -642,7 +645,7 @@ const staff = [
       registered: {
         date: "03-20-2013",
         age: 32,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/23.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/23.jpg",
@@ -659,7 +662,7 @@ const staff = [
       registered: {
         date: "06-10-2007",
         age: 36,
-      },
+      },empType: "operator",
       picture: {
         large: "https://randomuser.me/api/portraits/men/50.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/50.jpg",
@@ -676,7 +679,7 @@ const staff = [
       registered: {
         date: "09-22-2004",
         age: 34,
-      },
+      },empType: "manager",
       picture: {
         large: "https://randomuser.me/api/portraits/women/21.jpg",
         medium: "https://randomuser.me/api/portraits/med/women/21.jpg",
@@ -693,7 +696,7 @@ const staff = [
       registered: {
         date: "06-28-2007",
         age: 49,
-      },
+      },empType: "manager",
       picture: {
         large: "https://randomuser.me/api/portraits/men/56.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/56.jpg",
@@ -710,7 +713,7 @@ const staff = [
       registered: {
         date: "02-09-2016",
         age: 34,
-      },
+      },empType: "manager",
       picture: {
         large: "https://randomuser.me/api/portraits/men/6.jpg",
         medium: "https://randomuser.me/api/portraits/med/men/6.jpg",
