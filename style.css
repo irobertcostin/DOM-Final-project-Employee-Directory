@@ -325,6 +325,7 @@ color: white;
 
 .employee #esc:hover {
     background-color: red;
+    cursor: pointer;
 }
 
 .arrows {

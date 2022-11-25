@@ -35,7 +35,7 @@ population.addEventListener("click",(b)=>{
         // console.log(expanded)
 
         let employeeCard = modal.firstElementChild.firstElementChild;
-        console.log(employeeCard)
+        // console.log(employeeCard)
         employeeCard.children[1].src=expanded.picture.large;
         employeeCard.children[2].children[0].textContent=expanded.name.first + " " + expanded.name.last;
         employeeCard.children[2].children[1].textContent=expanded.email;
@@ -74,6 +74,19 @@ search.addEventListener("input",()=>{
 
 })
 
+let newElInput = document.querySelector(".newentry");
+let addBtn = document.querySelector(".newentrybutton");
+
+addBtn.addEventListener("click",()=>{
+
+    let name = newElInput.value;
+    
+    let newEmp = newObj(name);
+    staff.unshift(newEmp);
+    populeazaPagina(staff,1)
+
+})
+
 
 let arrows=document.querySelector(".arrows");
 arrows.addEventListener("click",(f)=>{
@@ -92,8 +105,8 @@ arrows.addEventListener("click",(f)=>{
         
     }else if(obj.id=="right"){
         let nexObj = next(staff,email);
-        console.log(employeeCard)
-        console.log(nexObj)
+        // console.log(employeeCard)
+        // console.log(nexObj)
         employeeCard.children[1].src=nexObj.picture.large;
         employeeCard.children[2].children[0].textContent=nexObj.name.first + " " + nexObj.name.last;
         employeeCard.children[2].children[1].textContent=nexObj.email;
@@ -106,18 +119,7 @@ arrows.addEventListener("click",(f)=>{
 
 })
 
-let newElInput = document.querySelector(".newentry");
-let addBtn = document.querySelector(".newentrybutton");
 
-addBtn.addEventListener("click",()=>{
-
-    let name = newElInput.value;
-    
-    let newEmp = newObj(name);
-    staff.unshift(newEmp);
-    populeazaPagina(staff,1)
-
-})
 
 let filter = document.querySelector(".filters");
 filter.addEventListener("change",(g)=>{
@@ -136,9 +138,21 @@ filter.addEventListener("change",(g)=>{
 })
 
 
-edit.addEventListener("click",()=>){
-    
-}
+edit.addEventListener("click",(h)=>{
+
+    let obj = h.target;
+
+    if(obj.id=="edit"){
+        obj.id=="save";
+        console.log(obj)
+    }
+
+
+})
+
+
+
+
 
 // nu se populeaza total daca sunt mai multe filtre active
 // functia de search nu cauta cu filtrele active, cauta in tot arrayul
