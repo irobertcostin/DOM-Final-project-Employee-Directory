@@ -217,3 +217,43 @@ function filtrare(arr,param){
     }
     return filtered
 }
+
+function createInputs() {
+    
+    
+    let info = document.querySelector(".info");
+
+    let input = document.createElement("input");
+    let input1=document.createElement("input");
+    let input2=document.createElement("input");
+    let input3=document.createElement("input");
+
+    info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling);
+    info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling);
+    info.removeChild(info.firstElementChild.nextElementSibling);
+    info.removeChild(info.firstElementChild);
+    
+
+    info.appendChild(input);
+    info.appendChild(input1);
+    info.appendChild(input2);
+    info.appendChild(input3);
+    
+    input.id = "fullname";
+    input1.id="email";
+    input2.id="regdate";
+    input3.id="age";
+
+    for(i=0;i<info.children.length;i++){
+        info.children[i].type="text";
+    }
+    input3.type="number";
+
+    input.placeholder="Type in new name...";
+    input1.placeholder="New email address";
+    input2.placeholder="New registration date";
+    input3.placeholder="New age";
+    
+    return info;
+
+}

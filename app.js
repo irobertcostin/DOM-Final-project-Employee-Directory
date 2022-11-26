@@ -141,10 +141,35 @@ filter.addEventListener("change",(g)=>{
 edit.addEventListener("click",(h)=>{
 
     let obj = h.target;
+    // console.log(obj);
+
+    let infoStorage = obj.previousElementSibling.previousElementSibling;
+    let name = infoStorage.firstElementChild.textContent;
+    let email = infoStorage.children[1].textContent;
+    let regiDate = infoStorage.children[2].textContent;
+    let age = infoStorage.children[3].textContent;
+
+    console.log(name);
+    console.log(email);
+    console.log(regiDate);
+    console.log(age);
+
+    
 
     if(obj.id=="edit"){
-        obj.id=="save";
-        console.log(obj)
+        obj.id="save";
+        obj.textContent="Save";
+        createInputs();
+        
+    } 
+    else if(obj.id=="save"){
+        obj.id="edit"
+        obj.textContent="Edit"
+        if(infoStorage.children[0].value==""){
+            infoStorage.children[0].value=name;
+            console.log(infoStorage.children[0])
+        }
+        
     }
 
 
@@ -157,5 +182,5 @@ edit.addEventListener("click",(h)=>{
 // nu se populeaza total daca sunt mai multe filtre active
 // functia de search nu cauta cu filtrele active, cauta in tot arrayul
 // daca avem un filtru activ, si apasam pe pagina, ne repopuleaza pagina fara filtre 
-// daca adaugam un element nou, sagetile sunt inactive pe modalul nou creat 
+
 

@@ -361,6 +361,14 @@ color: white;
     /* border: 2px solid red; */
     background-color: rgba(0, 0, 0, 0.61);
     margin-left: 5px;
+    color: white;
+}
+
+.info input {
+    /* border: 2px solid red; */
+    margin: 10px;
+    border: none;
+    outline-color: rgb(120, 7, 120);
 }
 
 #inputmodify {
