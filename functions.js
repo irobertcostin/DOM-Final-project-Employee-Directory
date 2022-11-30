@@ -185,9 +185,9 @@ function cautare(arr, obj) {
 function newObj(param){
     let x = {
         name: {
-          title: "",
-          first: "",
-          last: param,
+        title: "",
+        first: "",
+        last: param,
         },
         email: param+"@example.com",
         registered: {
@@ -217,6 +217,23 @@ function filtrare(arr,param){
     }
     return filtered
 }
+
+
+function filtrareCumulat(arr, types){
+
+    let filtered = [];
+
+    for(i=0;i<arr.length;i++){
+        if(types.includes(arr[i].empType)){
+            filtered.push(arr[i]);
+        }
+
+    }
+
+    return filtered;
+
+}
+
 
 function createInputs() {
     
@@ -253,7 +270,98 @@ function createInputs() {
     input1.placeholder="New email address";
     input2.placeholder="New registration date";
     input3.placeholder="New age";
+
+    return info;
+
+}
+
+
+function returnCheckedTypes(){
+
+    let checkes=document.querySelector(".filters").querySelectorAll(".type");
+
+
+    let types=[];
+    checkes.forEach(e=>{
+
+        if(e.checked){
+
+            types.push(e.id);
+        }
+    })
+
+    
+
+    return types;
+
+
+}
+
+
+function createParagraf() {
+
+    let info = document.querySelector(".info");
+
+    let p = document.createElement("p");
+    let p1=document.createElement("p");
+    let p2=document.createElement("p");
+    let p3=document.createElement("p");
+    
+    p.id = "fullname";
+    p1.id="email";
+    p2.id="regdate";
+    p3.id="age";
+
+    if(info.children[0].value !== "" && info.children[1].value !== "" && info.children[2].value !== "" && info.children[3].value !== ""){
+        p.textContent  = info.children[0].value;
+        p1.textContent = info.children[1].value;
+        p2.textContent = info.children[2].value;
+        p3.textContent = info.children[3].value;
+    }else {
+        return alert("invalid inputs")
+    }
+
+    
+
+
+
+    info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling);
+    info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling);
+    info.removeChild(info.firstElementChild.nextElementSibling);
+    info.removeChild(info.firstElementChild);
+    
+
+    info.appendChild(p);
+    info.appendChild(p1);
+    info.appendChild(p2);
+    info.appendChild(p3);
+    
     
     return info;
 
+
+
+
+}
+
+function editedItem () {
+    let info = document.querySelector(".info");
+    let obj = {
+        name: {
+            title: "Ms/Mrs",
+            first: info.children[0].textContent,
+            last: "",
+          },
+          email: "terra.franklin@example.com",
+          registered: {
+            date: "12-24-2008",
+            age: 23,
+          },
+          empType: "floor",
+          picture: {
+            large: "https://randomuser.me/api/portraits/women/22.jpg",
+            medium: "https://randomuser.me/api/portraits/med/women/22.jpg",
+            thumbnail: "https://randomuser.me/api/portraits/thumb/women/22.jpg",
+    }
+}
 }

@@ -1,14 +1,25 @@
+
+
+let search = document.querySelector(".search");
+let paging = document.querySelector(".paging");
+let modal= document.querySelector(".modal-container");
+let m= document.querySelector(".modal");
+let edit = document.getElementById("edit");
+let newElInput = document.querySelector(".newentry");
+let addBtn = document.querySelector(".newentrybutton");
+let population = document.querySelector(".population");
+
 populeazaPagina(staff, 1);
 
+addBtn.addEventListener("click",()=>{
 
-let paging = document.querySelector(".paging");
+    let name = newElInput.value;
+    
+    let newEmp = newObj(name);
+    staff.unshift(newEmp);
+    populeazaPagina(staff,1)
 
-let modal= document.querySelector(".modal-container");
-
-let m= document.querySelector(".modal");
-
-let edit = document.getElementById("edit");
-
+})
 
 paging.addEventListener("click", (a) => {
     let obj = a.target;
@@ -18,9 +29,6 @@ paging.addEventListener("click", (a) => {
     }
 })
 
-
-
-let population = document.querySelector(".population");
 
 // modal unhide and populated
 population.addEventListener("click",(b)=>{
@@ -57,7 +65,7 @@ m.addEventListener("click",(e)=>{
 
 })
 
-let search = document.querySelector(".search");
+
 search.addEventListener("input",()=>{
 
     let arr = cautare(staff,search.value.toLowerCase());
@@ -74,18 +82,9 @@ search.addEventListener("input",()=>{
 
 })
 
-let newElInput = document.querySelector(".newentry");
-let addBtn = document.querySelector(".newentrybutton");
 
-addBtn.addEventListener("click",()=>{
 
-    let name = newElInput.value;
-    
-    let newEmp = newObj(name);
-    staff.unshift(newEmp);
-    populeazaPagina(staff,1)
 
-})
 
 
 let arrows=document.querySelector(".arrows");
@@ -118,7 +117,7 @@ arrows.addEventListener("click",(f)=>{
 
 
 })
-
+let moreFilters = [];
 
 
 let filter = document.querySelector(".filters");
@@ -126,50 +125,57 @@ filter.addEventListener("change",(g)=>{
     
     let obj = g.target;
     
-    if(obj.checked==true){
-        paging.innerHTML="";
-        populeazaPagina(filtrare(staff,obj.id),1)
-        // creazaButoane(filtrare(staff,obj.id).length/12+1);
-        // console.log(filtrare(staff,obj.id))
-    }else if(obj.checked==false){
-        populeazaPagina(staff,1);
-    }
+    moreFilters=returnCheckedTypes();
+    populeazaPagina(filtrareCumulat(staff,moreFilters),1)
+
+    paging.innerHTML="";
+    creazaButoane(filtrareCumulat(staff,moreFilters).length/12+1);
+    paging.addEventListener("click",(d)=>{
+        let obj = d.target;
+        if(obj.classList.contains("pagina")){
+            populeazaPagina(filtrareCumulat(staff,moreFilters),obj.textContent)
+        }
+    })
+
+
 
 })
 
 
 edit.addEventListener("click",(h)=>{
-
     let obj = h.target;
-    // console.log(obj);
 
     let infoStorage = obj.previousElementSibling.previousElementSibling;
     let name = infoStorage.firstElementChild.textContent;
     let email = infoStorage.children[1].textContent;
     let regiDate = infoStorage.children[2].textContent;
     let age = infoStorage.children[3].textContent;
-
+    
     console.log(name);
     console.log(email);
-    console.log(regiDate);
-    console.log(age);
-
-    
 
     if(obj.id=="edit"){
         obj.id="save";
         obj.textContent="Save";
         createInputs();
         
-    } 
-    else if(obj.id=="save"){
-        obj.id="edit"
-        obj.textContent="Edit"
-        if(infoStorage.children[0].value==""){
-            infoStorage.children[0].value=name;
-            console.log(infoStorage.children[0])
+    } else if(obj.id=="save"){
+        
+        for(i=0;i<infoStorage.children.length;i++){
+
+            if(infoStorage.children[i]===""){
+                return "Invalid inputs";
+            }else {
+
+            }
+
         }
         
+
+        createParagraf();
+        
+        obj.id="edit"
+        obj.textContent="Edit"
     }
 
 
@@ -177,10 +183,6 @@ edit.addEventListener("click",(h)=>{
 
 
 
-
-
-// nu se populeaza total daca sunt mai multe filtre active
 // functia de search nu cauta cu filtrele active, cauta in tot arrayul
-// daca avem un filtru activ, si apasam pe pagina, ne repopuleaza pagina fara filtre 
-
-
+// swipe left/right nu functioneaza dupa editarea obiectului
+// 
