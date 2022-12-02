@@ -181,6 +181,21 @@ function cautare(arr, obj) {
     return searched;
 }
 
+
+function cautareEmail (arr,obj) {
+    let searched = {};
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i].name != undefined) {
+            if (arr[i].email.toLowerCase().includes(obj) || arr[i].email.toLowerCase().includes(obj)) {
+                searched = arr[i];
+            }
+        }
+
+    }
+    return searched;
+}
+
+
 //functie ce primeste ca parametru un atribut si creaza un obiect
 function newObj(param){
     let x = {
@@ -191,13 +206,13 @@ function newObj(param){
         },
         email: param+"@example.com",
         registered: {
-          date: "",
-          age: 18,
+        date: "",
+        age: 18,
         },
         picture: {
-          large: "https://randomuser.me/api/portraits/men/99.jpg",
-          medium: "",
-          thumbnail: "",
+        large: "https://randomuser.me/api/portraits/men/99.jpg",
+        medium: "",
+        thumbnail: "",
         },
     }
 
@@ -218,7 +233,7 @@ function filtrare(arr,param){
     return filtered
 }
 
-
+// function care lucreaza cu doua arrayuri
 function filtrareCumulat(arr, types){
 
     let filtered = [];
@@ -235,7 +250,7 @@ function filtrareCumulat(arr, types){
 }
 
 
-function createInputs() {
+function createInputs(obj) {
     
     
     let info = document.querySelector(".info");
@@ -256,22 +271,34 @@ function createInputs() {
     info.appendChild(input2);
     info.appendChild(input3);
     
-    input.id = "fullname";
+    input.id = "fullname mark";
     input1.id="email";
     input2.id="regdate";
     input3.id="age";
-
-    for(i=0;i<info.children.length;i++){
-        info.children[i].type="text";
-    }
-    input3.type="number";
-
-    input.placeholder="Type in new name...";
-    input1.placeholder="New email address";
-    input2.placeholder="New registration date";
-    input3.placeholder="New age";
-
     return info;
+
+}
+
+function populateInputs(obj){
+
+    let info = document.querySelector(".info");
+
+    // if(info.children[0].id.includes("mark")){
+    info.children[0].value = obj.name.first + " " + obj.name.last;
+    info.children[1].value = obj.email;
+    info.children[2].value = obj.registered.date;
+    info.children[3].value = obj.registered.age;
+
+    // } else {
+    // info.children[0].textContent = obj.name.first + " " + obj.name.last;
+    // info.children[1].textContent = obj.email;
+    // info.children[2].textContent = obj.registered.date;
+    // info.children[3].textContent = obj.registered.age;
+    // }
+
+    
+
+
 
 }
 
@@ -312,19 +339,11 @@ function createParagraf() {
     p2.id="regdate";
     p3.id="age";
 
-    if(info.children[0].value !== "" && info.children[1].value !== "" && info.children[2].value !== "" && info.children[3].value !== ""){
-        p.textContent  = info.children[0].value;
-        p1.textContent = info.children[1].value;
-        p2.textContent = info.children[2].value;
-        p3.textContent = info.children[3].value;
-    }else {
-        return alert("invalid inputs")
-    }
-
+    p.textContent = info.children[0].value;
+    p1.textContent = info.children[1].value;
+    p2.textContent = info.children[2].value;
+    p3.textContent = info.children[3].value;
     
-
-
-
     info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling);
     info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling);
     info.removeChild(info.firstElementChild.nextElementSibling);
@@ -337,12 +356,9 @@ function createParagraf() {
     info.appendChild(p3);
     
     
-    return info;
+        return info;
+    }
 
-
-
-
-}
 
 function editedItem () {
     let info = document.querySelector(".info");
@@ -351,17 +367,23 @@ function editedItem () {
             title: "Ms/Mrs",
             first: info.children[0].textContent,
             last: "",
-          },
-          email: "terra.franklin@example.com",
-          registered: {
+        },
+        email: "terra.franklin@example.com",
+        registered: {
             date: "12-24-2008",
             age: 23,
-          },
-          empType: "floor",
-          picture: {
+        },
+        empType: "floor",
+        picture: {
             large: "https://randomuser.me/api/portraits/women/22.jpg",
             medium: "https://randomuser.me/api/portraits/med/women/22.jpg",
             thumbnail: "https://randomuser.me/api/portraits/thumb/women/22.jpg",
     }
 }
+}
+
+function noInput(obj) {
+    if(obj.value===""){
+        alert(`no valid input`)
+    }
 }

@@ -4,7 +4,7 @@ let search = document.querySelector(".search");
 let paging = document.querySelector(".paging");
 let modal= document.querySelector(".modal-container");
 let m= document.querySelector(".modal");
-let edit = document.getElementById("edit");
+let editBtn = document.querySelector(".employee");
 let newElInput = document.querySelector(".newentry");
 let addBtn = document.querySelector(".newentrybutton");
 let population = document.querySelector(".population");
@@ -142,47 +142,43 @@ filter.addEventListener("change",(g)=>{
 })
 
 
-edit.addEventListener("click",(h)=>{
-    let obj = h.target;
-
-    let infoStorage = obj.previousElementSibling.previousElementSibling;
-    let name = infoStorage.firstElementChild.textContent;
-    let email = infoStorage.children[1].textContent;
-    let regiDate = infoStorage.children[2].textContent;
-    let age = infoStorage.children[3].textContent;
     
-    console.log(name);
-    console.log(email);
+
+
+
+
+editBtn.addEventListener("click",(h)=>{
+    h.preventDefault;
+    let obj = h.target;
+    let emailS = document.getElementById("email").textContent;
+    let info = document.querySelector(".info");
+    let x = cautareEmail(staff,emailS);
+
 
     if(obj.id=="edit"){
+        createInputs();
+        populateInputs(x);
         obj.id="save";
         obj.textContent="Save";
-        createInputs();
-        
+
     } else if(obj.id=="save"){
-        
-        for(i=0;i<infoStorage.children.length;i++){
-
-            if(infoStorage.children[i]===""){
-                return "Invalid inputs";
-            }else {
-
-            }
-
-        }
-        
-
         createParagraf();
-        
+        populateInputs(x);
         obj.id="edit"
-        obj.textContent="Edit"
-    }
-
-
+        obj.textContent="Edit"  
+        
+} 
+        
 })
+
+
+
 
 
 
 // functia de search nu cauta cu filtrele active, cauta in tot arrayul
 // swipe left/right nu functioneaza dupa editarea obiectului
-// 
+// dupa dezactivare filtre, nu se populeaza nimic
+// in edit, sageata returneaza eroare
+// functie modificare element in array, dupa save sa faca unshift de noul element 
+// functie remove din array
