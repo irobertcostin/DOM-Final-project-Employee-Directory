@@ -200,6 +200,13 @@ color: white;
     /* margin: auto; */
 }
 
+.modal-delete {
+    position: absolute;
+    z-index: 5;
+    left: 20px;
+    top: 20px;
+}
+
 .maindiv:hover {
     background: rgb(175,3,201);
     background: linear-gradient(90deg, rgba(175,3,201,0.7217480742296919) 17%, rgba(157,19,48,1) 100%, rgba(0,212,255,1) 100%);
@@ -288,6 +295,8 @@ color: white;
 
     position: relative;
 }
+
+
 
 .employee {
     /* border: 2px solid red; */

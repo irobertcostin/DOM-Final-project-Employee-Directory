@@ -9,6 +9,7 @@ let newElInput = document.querySelector(".newentry");
 let addBtn = document.querySelector(".newentrybutton");
 let population = document.querySelector(".population");
 
+
 populeazaPagina(staff, 1);
 
 addBtn.addEventListener("click",()=>{
@@ -50,6 +51,11 @@ population.addEventListener("click",(b)=>{
         employeeCard.children[2].children[2].textContent="Reg.date: "+expanded.registered.date;
         employeeCard.children[2].children[3].textContent="Age: "+expanded.registered.age;
     } 
+
+    
+    if(obj.classList.contains("modal-delete")){
+        console.log(obj.parentNode); 
+    }
 })
 
 
@@ -81,6 +87,9 @@ search.addEventListener("input",()=>{
 
 
 })
+
+
+
 
 
 
@@ -162,8 +171,8 @@ editBtn.addEventListener("click",(h)=>{
         obj.textContent="Save";
 
     } else if(obj.id=="save"){
+        let a = retrieveInfo(staff,info.children[1].textContent);
         createParagraf();
-        populateInputs(x);
         obj.id="edit"
         obj.textContent="Edit"  
         
@@ -173,7 +182,8 @@ editBtn.addEventListener("click",(h)=>{
 
 
 
-
+// if(population.children[0].lastElementChild.previousElementSibling = "img"){
+// }
 
 
 // functia de search nu cauta cu filtrele active, cauta in tot arrayul

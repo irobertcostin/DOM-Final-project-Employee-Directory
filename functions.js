@@ -33,8 +33,13 @@ function creazaCard(obj) {
     if (obj.registered == undefined) {
         age.textContent = "Age: "
     } else {
-        age.textContent = "Age: " + obj.registered.age;
+        age.textContent = "Age: " + obj.dob.age;
     }
+
+    let remove = document.createElement("img");
+    remove.classList.add("modal-delete")
+    remove.src="./images/buttons/icons8-remove-32.png";
+    mainDiv.appendChild(remove)
 
     let button = document.createElement("button");
     button.textContent = "More info";
@@ -250,7 +255,7 @@ function filtrareCumulat(arr, types){
 }
 
 
-function createInputs(obj) {
+function createInputs() {
     
     
     let info = document.querySelector(".info");
@@ -339,24 +344,36 @@ function createParagraf() {
     p2.id="regdate";
     p3.id="age";
 
-    p.textContent = info.children[0].value;
-    p1.textContent = info.children[1].value;
-    p2.textContent = info.children[2].value;
-    p3.textContent = info.children[3].value;
-    
-    info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling);
-    info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling);
-    info.removeChild(info.firstElementChild.nextElementSibling);
-    info.removeChild(info.firstElementChild);
-    
+    for(i=0;i<info.children.length;i++){
+        if(info.children[i].value==""){
 
-    info.appendChild(p);
-    info.appendChild(p1);
-    info.appendChild(p2);
-    info.appendChild(p3);
-    
-    
-        return info;
+            return alert("err")
+        
+            }else {
+                p.textContent = info.children[0].value;
+                p1.textContent = info.children[1].value;
+                p2.textContent = info.children[2].value;
+                p3.textContent = info.children[3].value;
+                
+            
+            
+                
+                info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling);
+                info.removeChild(info.firstElementChild.nextElementSibling.nextElementSibling);
+                info.removeChild(info.firstElementChild.nextElementSibling);
+                info.removeChild(info.firstElementChild);
+                
+            
+                info.appendChild(p);
+                info.appendChild(p1);
+                info.appendChild(p2);
+                info.appendChild(p3);
+                
+                
+                    return info;
+            }
+
+    }
     }
 
 
@@ -387,3 +404,4 @@ function noInput(obj) {
         alert(`no valid input`)
     }
 }
+
