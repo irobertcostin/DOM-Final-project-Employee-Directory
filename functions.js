@@ -157,7 +157,7 @@ function previous(arr, param) {
     return x;
 }
 
-
+// functie care returneaza elementul urmator
 function next(arr, param) {
     let x = "";
 
@@ -186,7 +186,7 @@ function cautare(arr, obj) {
     return searched;
 }
 
-
+// functie care cauta un obiect dupa un parametru , intr-un array
 function cautareEmail (arr,obj) {
     let searched = {};
     for (i = 0; i < arr.length; i++) {
@@ -254,7 +254,7 @@ function filtrareCumulat(arr, types){
 
 }
 
-
+// functie care creaza inputs
 function createInputs() {
     
     
@@ -284,6 +284,7 @@ function createInputs() {
 
 }
 
+// functie care primeste obiect si populeaza inputs
 function populateInputs(obj){
 
     let info = document.querySelector(".info");
@@ -307,7 +308,7 @@ function populateInputs(obj){
 
 }
 
-
+// functie care returneaza inputurile checked
 function returnCheckedTypes(){
 
     let checkes=document.querySelector(".filters").querySelectorAll(".type");
@@ -329,7 +330,7 @@ function returnCheckedTypes(){
 
 }
 
-
+// functie care creata elemente Pp
 function createParagraf() {
 
     let info = document.querySelector(".info");
@@ -399,9 +400,20 @@ function editedItem () {
 }
 }
 
-function noInput(obj) {
-    if(obj.value===""){
-        alert(`no valid input`)
-    }
-}
 
+
+// functie ce primeste un object si il scoate din array 
+function remove(arr,param){
+
+    let nou = [];
+
+    for(i=0;i<arr.length;i++){
+        if(arr[i].email != param){
+            nou.push(arr[i]);
+        }
+    }
+
+    return nou;
+
+
+}

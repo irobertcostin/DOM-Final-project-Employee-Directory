@@ -54,7 +54,12 @@ population.addEventListener("click",(b)=>{
 
     
     if(obj.classList.contains("modal-delete")){
-        console.log(obj.parentNode); 
+        // console.log(obj.parentNode); 
+        let x = retrieveInfo(staff,obj.parentNode.firstElementChild.nextElementSibling.textContent);
+        console.log(remove(staff,x.email));
+        population.removeChild(obj.parentNode);
+        // remove(staff,x)
+        // console.log(staff);
     }
 })
 
