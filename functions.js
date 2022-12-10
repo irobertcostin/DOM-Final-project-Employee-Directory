@@ -33,7 +33,7 @@ function creazaCard(obj) {
     if (obj.registered == undefined) {
         age.textContent = "Age: "
     } else {
-        age.textContent = "Age: " + obj.dob.age;
+        age.textContent = "Age: " + obj.registered.age;
     }
 
     let remove = document.createElement("img");
@@ -289,22 +289,19 @@ function populateInputs(obj){
 
     let info = document.querySelector(".info");
 
-    // if(info.children[0].id.includes("mark")){
-    info.children[0].value = obj.name.first + " " + obj.name.last;
+    if(obj.name.first=="") {
+        info.children[0].value = obj.name.last
+    }else {
+        info.children[0].value = obj.name.first + " " + obj.name.last;
+    }
+    
     info.children[1].value = obj.email;
+    
+    if(info.children[2].value==""){
+        info.children[2].value ="input reg date"
+    }
     info.children[2].value = obj.registered.date;
     info.children[3].value = obj.registered.age;
-
-    // } else {
-    // info.children[0].textContent = obj.name.first + " " + obj.name.last;
-    // info.children[1].textContent = obj.email;
-    // info.children[2].textContent = obj.registered.date;
-    // info.children[3].textContent = obj.registered.age;
-    // }
-
-    
-
-
 
 }
 
@@ -405,15 +402,28 @@ function editedItem () {
 // functie ce primeste un object si il scoate din array 
 function remove(arr,param){
 
-    let nou = [];
+    // let nou = [];
 
     for(i=0;i<arr.length;i++){
-        if(arr[i].email != param){
-            nou.push(arr[i]);
+        if(arr[i].email == param){
+            let x = arr.indexOf(arr[i])
+            arr.splice(x,1)
+            
         }
     }
+    return arr;
+}
 
-    return nou;
 
+// retrieve nationalities
+let x = (arr) => {
+
+    let nationalities = [];
+
+    for(i=0;i<arr.length;i++){
+        nationalities.push(arr[i].nat)
+    }
+
+    return nationalities;
 
 }

@@ -1,6 +1,6 @@
 const staff = [];
 
-fetch("https://randomuser.me/api/?results=42")
+fetch("https://randomuser.me/api/?results=100")
 .then(data=>data.json())
 .then(data=>{
     return data.results})
